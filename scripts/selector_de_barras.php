@@ -14,4 +14,3 @@ if (!isset($_SESSION["valido"]) || $_SESSION["valido"] !== TRUE) {
         include(PROJECT_ROOT . 'views/barras/barra_usuario.php');
     }
 }
-?>

@@ -14,4 +14,3 @@ if (isset($_SESSION['cita']) && $_SESSION['cita'] === TRUE) {
     echo "<div class='success'>Felicidades, la cita ha sido registrada con éxito.</div>";
     $_SESSION['cita'] = ''; // Limpiar los errores después de mostrarlos
 }
-?>
