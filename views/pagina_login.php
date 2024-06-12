@@ -16,7 +16,7 @@ include('../scripts/selector_de_barras.php');
     <section>
         <div class="container py-5 text">
             <h1 class="display-2 fw-bolder mb-5">Iniciar sección</h1>
-            <p>No tiene cuenta? <a href="pagina_registro">regístrate aquí</a></p>
+            <p>No tiene cuenta? <a href="pagina_registro">-->REGISTRATE AQUÍ<-- </a></p>
             <!--la funcion se llamara a cualquier cambio del formulario.-->
             <form action="/miskyyurax/views/login/login.php" method="post">
                 <div class="form-group">

@@ -51,30 +51,31 @@ if ($stmt->num_rows > 0) {
         // Ejecutar la declaración
         if ($stmt->execute()) {
             // La inserción fue exitosa
-            header('Location:/miskyyurax/index.php');
+            echo "<script>
+                alert('Inicio de sesión exitoso!');
+                setTimeout(function(){
+                    window.location.href = '/miskyyurax/index.php';
+                }, 2000);
+            </script>";
             exit();
         } else {
             echo "Ha habido un error, escribir a soporte";
         }
     } else {
-        echo "Contraseña incorrecta";
-        echo "<a href='/miskyyurax/views/pagina_login.php'>Click aqui</a> para volver a intentar o espera 5 segundos y serás redirigido";
-        // JavaScript para redireccionar automáticamente
         echo "<script>
+                alert('Contraseña incorrecta!');
                 setTimeout(function(){
                     window.location.href = '/miskyyurax/views/pagina_login.php';
-                }, 5000);
-              </script>";
+                }, 2000);
+            </script>";
     }
 } else {
-    echo "Usuario no encontrado.";
-    echo "<a href='/miskyyurax/views/pagina_login.php'>Click aqui</a> para volver a intentar o espera 5 segundos y serás redirigido";
-    // JavaScript para redireccionar automáticamente
     echo "<script>
+            alert('USUARIO NO REGISTRADO');
             setTimeout(function(){
-                window.location.href = /miskyyurax/views/pagina_login.php';
-            }, 5000);
-          </script>";
+                window.location.href = '/miskyyurax/views/pagina_login.php';
+            }, 2000);
+        </script>";
 }
 
 // Cerrar la declaración y la conexión

@@ -8,19 +8,19 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav ms-auto fs-5">
                         <li class="nav-item">
-                            <a class="nav-link" href="/miskyyurax/index.php">Inicio</a>
+                            <a class="nav-link text-black" href="/miskyyurax/index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/miskyyurax/views/noticias.php">Noticias</a>
+                            <a class="nav-link text-black" href="/miskyyurax/views/noticias.php">Noticias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/miskyyurax/views/pagina_login.php">Iniciar Sesión</a>
+                            <a class="nav-link text-black" href="/miskyyurax/views/pagina_login.php">Iniciar Sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/miskyyurax/views/pagina_registro.php">Registrarse</a>
+                            <a class="nav-link text-black" href="/miskyyurax/views/pagina_registro.php">Registrarse</a>
                         </li>
                     </ul>
                 </div>

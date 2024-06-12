@@ -50,7 +50,7 @@
                             <div class="d-flex align-items-center justify-content-center">
                                 <img src="photos/cliente4.webp" alt="Client" class="rounded-circle mx-2" style="width: 5rem; height: 5rem;">
                                 <div>
-                                    <h5 class="card-title mb-0">Ricardo Montenegro</h5>
+                                    <h5 class="card-title mb-0">Richie Mont</h5>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4">
-                <a href="#" class="logo"><img src="/misky/assets/images/logo.png" alt="Logo" /></a>
+                <a href="#" class="logo"><img src="../../../miskyyurax/photos/logo.png" alt="Logo" /></a>
             </div>
             <div class="col-md-4 text-center">
                 <a¡ class="mb-0 text-body-secondary" title="Aviso legal">© Creado por Alexander Pérez | Misky Yurax.inc </a¡>

@@ -32,7 +32,7 @@ if (isset($_SESSION['usuario'])) {
 
     <main>
         <section>
-            <div class="container p-2 vh-80 ">
+            <div class="container p-2 vh-100">
                 <?php include('../scripts/mensaje_cambio.php'); ?>
 
                 <?php if (isset($role) && $role == 'admin') { ?>

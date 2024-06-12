@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 :root {
   background-color: #f0efe6;
   background-image: url("../photos/backGround.png");
@@ -9,10 +10,12 @@ main {
   background-color: #f0efe6;
   font-family: "roboto";
 }
+
 main h1,
 main h3 {
   text-align: center;
 }
+
 main h2,
 main h3,
 main h4,
@@ -81,4 +84,7 @@ section {
   color: #0d6efd !important;
   /* Color del texto para el elemento activo */
   font-weight: bold;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
+
