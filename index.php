@@ -7,16 +7,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" CONTENT="Alexander Pérez">
-    <meta name="description" content="Repostería Peruana!">
-    <link rel="icon" type="image/jpg" href="photos/logo.png">
-    <!-- ESTILO-->
-    <link rel="stylesheet" href="style/main.css">
-    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-    <title>Misky Yurax</title>
+<?php include '/xampp/htdocs/miskyyurax/views/head.php' ?>
+<title>Misky Yurax</title>
 </head>
 
 <body>

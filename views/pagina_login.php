@@ -4,19 +4,9 @@ include('../config.php');
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" CONTENT="Gabriel Vich">
-    <meta name="description" content="Contacto">
-    <meta name="category" content="Bar">
-    <link rel="icon" type="image/jpg" href="../photos/favicon.ico">
-    <!-- ESTILO-->
-    <link rel="stylesheet" href="../style/main.css">
-    <script src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-    <!--Scripts JS-->
+<?php include '/xampp/htdocs/miskyyurax/views/head.php' ?>
 
-    <title>La carta de oh-nigiris!</title>
+<title>Inicio de Sesión</title>
 </head>
 
 <?php

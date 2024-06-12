@@ -155,11 +155,8 @@ footer ul li a img{
     width: -moz-fit-content;
     width:fit-content;
     }}
-/*
+
 @media only screen and (max-width: 525px) { 
-}
-/*--------------Ajustes que hice para la vista con dispositivos moviles-----------
-{
   nav ul li img { width: 100px;
   height: auto;}
   nav ul li a{
@@ -174,5 +171,3 @@ footer ul li a img{
   footer {padding: 10px;}
 }
 
-/*eso ya seria todo :)
-Gracias por ver*/

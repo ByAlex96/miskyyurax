@@ -28,18 +28,8 @@ if ($role == 'admin') {
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" CONTENT="Gabriel Vich">
-    <meta name="description" content="Contacto">
-    <meta name="category" content="Bar">
-    <link rel="icon" type="image/jpg" href="../photos/favicon.ico">
-    <!-- ESTILO-->
-    <link rel="stylesheet" href="../style/main.css">
-    <script src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-    <!--Scripts JS-->
-
-    <title>Panel de admin</title>
+    <?php include '/xampp/htdocs/miskyyurax/views/head.php' ?>
+    <title>Panel Administrativo</title>
 </head>
 
 <body>
@@ -59,20 +49,17 @@ if ($role == 'admin') {
                     <p>Cualquier cambio es irreversible, tenga mucho cuidado de no equivocarse.</p>
                     <!-- el formulario esta en el siguiente archivo, que a su vez se procesa en otro archivo -->
                     <div class="d-flex flex-column justify-content-center">
-    <button class="btn btn-secondary m-2 w-100 " type="button" onclick="toggleForm('crear')">Crear nuevo usuario</button>
-    <form action="/miskyyurax/views/perfil/cambio_contraseña.php">
-        <button class="btn btn-secondary m-2 w-100 " type="submit">Cambiar contraseña</button>
-    </form>
-    <form action="/miskyyurax/views/perfil/eliminar_usuario.php">
-        <button class="btn btn-secondary m-2 w-100 " type="submit">Eliminar usuario</button>
-    </form>
-</div>
-
-
-
+                        <button class="btn btn-secondary m-2 w-100 " type="button" onclick="toggleForm('crear')">Crear nuevo usuario</button>
+                        <form action="/miskyyurax/views/perfil/cambio_contraseña.php">
+                            <button class="btn btn-secondary m-2 w-100 " type="submit">Cambiar contraseña</button>
+                        </form>
+                        <form action="/miskyyurax/views/perfil/eliminar_usuario.php">
+                            <button class="btn btn-secondary m-2 w-100 " type="submit">Eliminar usuario</button>
+                        </form>
+                    </div>
                     <div>
-                    <div id="crearForm" style="display: none;">
-                    <h2>Crear usuario</h2>
+                        <div id="crearForm" style="display: none;">
+                            <h2>Crear usuario</h2>
                             <form action="/miskyyurax/views/login/registrar.php" method="post">
                                 <div class="form-group">
                                     <label for="sexo">Rol</label>
@@ -140,25 +127,25 @@ if ($role == 'admin') {
                         </div>
 
 
-                    <h2 class="m-3">Modificar usuario</h2>
-                    <div class="d-flex justify-content-center">
-            <button class="btn btn-secondary mx-2" type="button" onclick="toggleForm('modificar')">Seleccionar usuario</button>
-        </div>
-        <div id="modificarForm" style="display: none;">
-        <form method="post" action="/miskyyurax/views/admin_usuarios.php" class="p-3 my-3">
-                <label for='user_id'>Seleccionar usuario a modificar:</label>
-                <select class="form-control" id="user_id" name="user_id" required>
-                    <?php foreach ($users as $user) { ?>
-                        <option value="<?php echo htmlspecialchars($user['id']); ?>"><?php echo htmlspecialchars($user['name']); ?></option>
-                    <?php } ?>
-                </select><br>
-                <button class="btn btn-dark" type="submit" id="enviar">Cambiar</button>
-                        </form>
+                        <h2 class="m-3">Modificar usuario</h2>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-secondary mx-2" type="button" onclick="toggleForm('modificar')">Seleccionar usuario</button>
+                        </div>
+                        <div id="modificarForm" style="display: none;">
+                            <form method="post" action="/miskyyurax/views/admin_usuarios.php" class="p-3 my-3">
+                                <label for='user_id'>Seleccionar usuario a modificar:</label>
+                                <select class="form-control" id="user_id" name="user_id" required>
+                                    <?php foreach ($users as $user) { ?>
+                                        <option value="<?php echo htmlspecialchars($user['id']); ?>"><?php echo htmlspecialchars($user['name']); ?></option>
+                                    <?php } ?>
+                                </select><br>
+                                <button class="btn btn-dark" type="submit" id="enviar">Cambiar</button>
+                            </form>
 
-          
-                    </div>
-                    
-                    <?php include'perfil/mostrar_info.php' ?>
+
+                        </div>
+
+                        <?php include 'perfil/mostrar_info.php' ?>
                     </div>
             </section>
         </div>
@@ -168,7 +155,7 @@ if ($role == 'admin') {
         function toggleForm(formId) {
             var crearForm = document.getElementById('crearForm');
             var modificarForm = document.getElementById('modificarForm');
-            
+
             if (formId === 'crear') {
                 crearForm.style.display = crearForm.style.display === 'none' ? 'block' : 'none';
                 modificarForm.style.display = 'none';
@@ -179,4 +166,5 @@ if ($role == 'admin') {
         }
     </script>
 </body>
+
 </html>
