@@ -9,7 +9,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNav">
-                    <ul class="navbar-nav ms-auto fs-5">
+                    <ul class="navbar-nav ms-auto ">
                         <li class="nav-item">
                             <a class="nav-link text-black" href="/miskyyurax/index.php">Inicio</a>
                         </li>

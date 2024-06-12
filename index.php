@@ -17,11 +17,12 @@ session_start();
     ?>
 
     <main>
-        <?php
-        include('views/barras/bienvenido.php');
-        ?>
+        <section class="main-section w-100 py-2">
+            <?php
+            include('views/barras/bienvenido.php');
+            ?>
 
-        <section class="main-section w-100">
+
             <img class="home vh-80 d-flex">
             <div class=" row w-100">
                 <div class="col-md-6 offset-md-3 homeContent">

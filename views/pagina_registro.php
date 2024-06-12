@@ -21,6 +21,49 @@ include('../config.php');
                 <h1 class="display-2 fw-bolder mb-2">Eres nuevo? regístrate aquí</h1>
                 <p>Ya tiene cuenta? <a href="pagina_registro">Accede aquí</a></p>
                 <!--la funcion se llamara a cualquier cambio del formulario.-->
+                <?php
+                // Comprobamos si se ha enviado el formulario
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // Obtenemos los datos del formulario
+                    $nombre = $_POST["nombre"];
+                    $apellidos = $_POST["apellidos"];
+                    $email = $_POST["email"];
+                    $telefono = $_POST["telefono"];
+                    $direccion = $_POST["direccion"];
+                    $sexo = $_POST["sexo"];
+                    $fecha_nacimiento = $_POST["fecha_nacimiento"];
+                    $usuario = $_POST["usuario"];
+                    $password = $_POST["password"];
+
+                    // Validación de los campos obligatorios
+                    if (empty($nombre) || empty($apellidos) || empty($email) || empty($telefono) || empty($direccion) || empty($sexo) || empty($fecha_nacimiento) || empty($usuario) || empty($password)) {
+                        echo "<div class='alert alert-danger' role='alert'>Por favor, complete todos los campos obligatorios.</div>";
+                    } else {
+                        // Validación del formato de los campos
+                        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                            echo "<div class='alert alert-danger' role='alert'>El correo electrónico no es válido.</div>";
+                        } else if (!preg_match("/^[0-9]{9}$/", $telefono)) {
+                            echo "<div class='alert alert-danger' role='alert'>El número de teléfono debe tener 9 dígitos.</div>";
+                        } else if (!preg_match("/^[a-zA-Z0-9._%+-]{5,255}$/", $direccion)) {
+                            echo "<div class='alert alert-danger' role='alert'>La dirección no es válida.</div>";
+                        } else if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/", $fecha_nacimiento)) {
+                            echo "<div class='alert alert-danger' role='alert'>La fecha de nacimiento no es válida.</div>";
+                        } else if (!preg_match("/^[A-Za-z0-9]{3,30}$/", $usuario)) {
+                            echo "<div class='alert alert-danger' role='alert'>El nombre de usuario debe tener entre 3 y 30 caracteres.</div>";
+                        } else {
+                            // Validación de la contraseña
+                            if (!preg_match("/^(?=.*[A-Z])(?=.*[0-9]).{8,60}$/", $password)) {
+                                echo "<div class='alert alert-danger' role='alert'>La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número.</div>";
+                            } else {
+                                // Si todos los campos son válidos, se procede a registrar el usuario
+                                // (Aquí debes agregar el código para registrar el usuario en la base de datos)
+                                echo "<div class='alert alert-success' role='alert'>Usuario registrado correctamente!</div>";
+                            }
+                        }
+                    }
+                }
+                ?>
+
                 <form action="/miskyyurax/views/login/registrar.php" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>

@@ -9,7 +9,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/miskyyurax/index.php">Inicio</a>
                     </li>
@@ -17,13 +17,13 @@
                         <a class="nav-link" href="/miskyyurax/views/perfil.php">Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/miskyyurax/views/admin_usuarios.php">Administrar usuarios</a>
+                        <a class="nav-link" href="/miskyyurax/views/admin_usuarios.php">Usuarios-Administración</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/miskyyurax/views/citaciones.php">Administrar citaciones</a>
+                        <a class="nav-link" href="/miskyyurax/views/citaciones.php">Citas-Administración</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/miskyyurax/views/noticias.php">Administrar noticias</a>
+                        <a class="nav-link" href="/miskyyurax/views/noticias.php">Noticias-Administración</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/miskyyurax/views/login/logout.php">Cerrar sección</a>
