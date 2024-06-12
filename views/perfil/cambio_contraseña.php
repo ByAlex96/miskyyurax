@@ -84,7 +84,7 @@ if (isset($_POST['user_id']) && $_POST['user_id'] !== '') {
     '; } ?>
     </form>
     <h1>Cambia tu contraseña</h1>
-    <form action="/proyecto/views/perfil/actualizar_contraseña.php" method="post" class="py-2">
+    <form action="/miskyyurax/views/perfil/actualizar_contraseña.php" method="post" class="py-2">
         <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
             echo "Ahora tiene seleccionado al $roleSeleccionado $usuarioSeleccionado <br>";
         } ?>

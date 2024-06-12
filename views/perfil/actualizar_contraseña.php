@@ -39,16 +39,16 @@ if ($stmt->num_rows > 0) {
             
             if ($stmt->execute()) {
                 $_SESSION['cambio'] = TRUE;
-                header('Location: /proyecto/views/perfil/cambio_contraseña.php');
+                header('Location: /miskyyurax/views/perfil/cambio_contraseña.php');
                 exit();
             } else {
                 $_SESSION['error'] = "Ha habido un error procesando la solicitud, escribe a soporte.";
-                header('Location: /proyecto/views/perfil/cambio_contraseña.php');
+                header('Location: /miskyyurax/views/perfil/cambio_contraseña.php');
                 exit();
             }
         } else {
             $_SESSION['error'] = "La contraseña vieja es incorrecta.";
-            header('Location: /proyecto/views/perfil/cambio_contraseña.php');
+            header('Location: /miskyyurax/views/perfil/cambio_contraseña.php');
             exit();
         }
     } else {

@@ -71,7 +71,7 @@ if (isset($_POST['delete_user']) && isset($_SESSION['panel_admin']) && $_SESSION
         }
 
         $stmt->close();
-        header('Location: /proyecto/views/perfil/eliminar_usuario.php');
+        header('Location: /miskyyurax/views/perfil/eliminar_usuario.php');
         exit();
     }
 }

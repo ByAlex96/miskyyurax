@@ -36,7 +36,7 @@ if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
     
         if ($stmt->execute()) {
             $_SESSION['cambio'] = TRUE;
-            header('Location: /proyecto/views/perfil.php');
+            header('Location: /miskyyurax/views/perfil.php');
             exit();
         } else {
             echo "Error al actualizar los datos del usuario.";
@@ -52,19 +52,19 @@ if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
         
         if ($stmt->execute()) {
             $_SESSION['cambio'] = TRUE;
-            header('Location: /proyecto/views/perfil.php');
+            header('Location: /miskyyurax/views/perfil.php');
             exit();
         } else {
             echo "Error al actualizar los datos del usuario.";
         }
     } else {
         $_SESSION['error'] .= "No se ha realizado ningún cambio, la contraseña es incorrecta. ";
-        header('Location: /proyecto/views/perfil.php');
+        header('Location: /miskyyurax/views/perfil.php');
         exit();
     }}
 } else {
     $_SESSION['error'] .= "No se ha realizado ningún cambio, usuario no encontrado. ";
-    header('Location: /proyecto/views/perfil.php');
+    header('Location: /miskyyurax/views/perfil.php');
     exit();
 }
 
