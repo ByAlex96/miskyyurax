@@ -14,9 +14,10 @@ include('../scripts/selector_de_barras.php');
 ?>
 <main>
     <section>
-        <div class="container py-5 text">
+        <div class="container py-5 text w-75">
             <h1 class="display-2 fw-bolder mb-5">Iniciar sección</h1>
-            <p>No tiene cuenta? <a href="pagina_registro.php">-->REGISTRATE AQUÍ<-- </a></p>
+            <p>No tiene cuenta? <a href="pagina_registro.php" class="btn btn-primary">REGISTRATE AQUÍ</a></p>
+
             <!--la funcion se llamara a cualquier cambio del formulario.-->
             <form action="/miskyyurax/views/login/login.php" method="post">
                 <div class="form-group">
@@ -50,8 +51,13 @@ include('../scripts/selector_de_barras.php');
                 <hr>
                 <label for="privacidad">Acepta nuestra <a href="#">política de privacidad?</a></label>
                 <input type="checkbox" id="privacidad" name="privacidad" required>
-                <button class="btn btn-dark" type="submit" id="enviar">Enviar</button>
-                <button class="btn btn-dark" type="reset">Borrar</button>
+                </br></br>
+                <div>
+                    <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                    <button class="btn btn-primary" type="reset">Borrar</button>
+                </div>
+
+
             </form>
 
         </div>

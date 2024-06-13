@@ -43,20 +43,21 @@ if ($role == 'admin') {
         ?>
         <div>
             <section>
-                <div class=" container">
-                    <h1>Panel de administrador de usuarios</h1>
+                <div class=" container w-75">
+                    <h1 class="display-2 fw-bolder p-5">Panel de administrador de usuarios</h1>
                     <p>Bienvenido al administrador de perfiles, aquí puedes crear, modificar o eliminar cuentas de usuarios.</p>
                     <p>Cualquier cambio es irreversible, tenga mucho cuidado de no equivocarse.</p>
                     <!-- el formulario esta en el siguiente archivo, que a su vez se procesa en otro archivo -->
-                    <div class="d-flex flex-column justify-content-center">
-                        <button class="btn btn-secondary m-2 w-100 " type="button" onclick="toggleForm('crear')">Crear nuevo usuario</button>
-                        <form action="/miskyyurax/views/perfil/cambio_contraseña.php">
-                            <button class="btn btn-secondary m-2 w-100 " type="submit">Cambiar contraseña</button>
+                    <div class="d-flex flex-column align-items-center my-5">
+                        <button class="btn btn-primary m-2 w-50" type="button" onclick="toggleForm('crear')">Crear nuevo usuario</button>
+                        <form action="/miskyyurax/views/perfil/cambio_contraseña.php" class="w-50">
+                            <button class="btn btn-primary m-2 w-100" type="submit">Cambiar contraseña</button>
                         </form>
-                        <form action="/miskyyurax/views/perfil/eliminar_usuario.php">
-                            <button class="btn btn-secondary m-2 w-100 " type="submit">Eliminar usuario</button>
+                        <form action="/miskyyurax/views/perfil/eliminar_usuario.php" class="w-50">
+                            <button class="btn btn-primary m-2 w-100" type="submit">Eliminar usuario</button>
                         </form>
                     </div>
+
                     <div>
                         <div id="crearForm" style="display: none;">
                             <h2>Crear usuario</h2>
@@ -121,15 +122,18 @@ if ($role == 'admin') {
 
                                 <label for="privacidad">Acepta nuestra <a href="#">política de privacidad?</a></label>
                                 <input type="checkbox" id="privacidad" name="privacidad" required>
-                                <button class="btn btn-dark" type="submit" id="enviar">Enviar</button>
-                                <button class="btn btn-dark" type="reset">Borrar</button>
+                                </br></br>
+                                <div>
+                                    <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                                    <button class="btn btn-primary" type="reset">Borrar</button>
+                                </div>
                             </form>
                         </div>
 
 
                         <h2 class="m-3">Modificar usuario</h2>
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-secondary mx-2" type="button" onclick="toggleForm('modificar')">Seleccionar usuario</button>
+                            <button class="btn btn-primary mx-2" type="button" onclick="toggleForm('modificar')">Seleccionar usuario</button>
                         </div>
                         <div id="modificarForm" style="display: none;">
                             <form method="post" action="/miskyyurax/views/admin_usuarios.php" class="p-3 my-3">
@@ -139,7 +143,7 @@ if ($role == 'admin') {
                                         <option value="<?php echo htmlspecialchars($user['id']); ?>"><?php echo htmlspecialchars($user['name']); ?></option>
                                     <?php } ?>
                                 </select><br>
-                                <button class="btn btn-dark" type="submit" id="enviar">Cambiar</button>
+                                <button class="btn btn-primary" type="submit" id="enviar">Cambiar</button>
                             </form>
 
 

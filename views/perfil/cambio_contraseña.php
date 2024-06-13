@@ -59,62 +59,57 @@ if (isset($_POST['user_id']) && $_POST['user_id'] !== '') {
 
 <body>
 <?php include('../../scripts/selector_de_barras.php'); ?>
-    <main>
-    <section class="container">
-        <div class="container">
+<main>
+    <section class="container-fluid" style="background-color: #f0f0f0;">
+        <div class="container py-3">
+            <a href="javascript:history.back()" class="btn btn-primary mb-3">Volver</a>
             <?php include('../../scripts/mensaje_cambio.php'); ?>
             <form method="post" action="" class="p-3 my-3">
-                <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
-                    echo '<label for="user_id">Seleccionar usuario a modificar:</label>
-        <select class="form-control" id="user_id" name="user_id" required>'; ?>
-                    <?php foreach ($users as $user) { ?>
-                        <option value="<?php echo htmlspecialchars($user['id']); ?>" <?php echo ($user['id'] == $idUsuario) ? 'selected' : ''; ?>>
-                            <?php echo htmlspecialchars($user['name']); ?>
-                        </option>
-                    <?php } ?>
-                <?php echo '
-        </select><br>
-    ';
-                } ?>
-
-                
+                <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) : ?>
+                    <label for="user_id">Seleccionar usuario a modificar:</label>
+                    <select class="form-control" id="user_id" name="user_id" required>
+                        <?php foreach ($users as $user) : ?>
+                            <option value="<?php echo htmlspecialchars($user['id']); ?>" <?php echo ($user['id'] == $idUsuario) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($user['name']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <br>
+                <?php endif; ?>
             </form>
             <h1 class="display-2 fw-bolder mb-5">Cambia tu contraseña</h1>
             <form action="/miskyyurax/views/perfil/actualizar_contraseña.php" method="post" class="py-2">
-                <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
-                    echo "Hola, en que te puedo ayudar hoy? </br> </br>";
-                } ?>
+                <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) : ?>
+                    <p>Hola, ¿en qué te puedo ayudar hoy?</p>
+                <?php else : ?>
+                    <div class="form-group">
+                        <label for="password">Contraseña vieja</label>
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Se requiere mínimo 8 caracteres, una letra mayúscula y un número" pattern=".{8,60}" required>
+                    </div>
+                <?php endif; ?>
                 <div class="form-group">
-                    <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
-                    } else {
-                        echo '
-            <label for="password">Contraseña vieja</label>
-            <input class="form-control" type="password" id="password" name="password" placeholder="Se requiere mínimo 8 caracteres, una letra mayúscula y un número" pattern=".{8,60}" required>
-        </div>';
-                    } ?>
-                    <div class="form-group">
-                        <label for="passwordnueva">Contraseña nueva</label>
-                        <input class="form-control" type="password" id="passwordnueva" name="passwordnueva" placeholder="Se requiere mínimo 8 caracteres, una letra mayúscula y un número" pattern=".{8,60}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmacion">Vuelve a introducir la contraseña nueva</label>
-                        <input class="form-control" type="password" id="confirmacion" name="confirmacion" placeholder="Se requiere mínimo 8 caracteres, una letra mayúscula y un número" pattern=".{8,60}" required>
-                    </div>
-                    <div class="p-3">
+                    <label for="passwordnueva">Contraseña nueva</label>
+                    <input class="form-control" type="password" id="passwordnueva" name="passwordnueva" placeholder="Se requiere mínimo 8 caracteres, una letra mayúscula y un número" pattern=".{8,60}" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmacion">Vuelve a introducir la contraseña nueva</label>
+                    <input class="form-control" type="password" id="confirmacion" name="confirmacion" placeholder="Se requiere mínimo 8 caracteres, una letra mayúscula y un número" pattern=".{8,60}" required>
+                </div>
+                <div class="p-3">
                     <input type="checkbox" id="confirmacion_check" name="confirmacion_check" required>
-                        <label for="confirmacion_check">¿Está seguro?</label></div> 
-                        
-                        </br>
-                        <div>
-                        <button class="btn btn-dark" type="submit">Actualizar Datos</button>
-                        <button class="btn btn-dark" type="reset">Reiniciar</button>
-                        </div>
-                    </div>
+                    <label for="confirmacion_check">¿Está seguro?</label>
+                </div>
+                <br>
+                <div>
+                    <button class="btn btn-primary" type="submit">Actualizar Datos</button>
+                    <button class="btn btn-primary" type="reset">Reiniciar</button>
+                </div>
             </form>
         </div>
-        </section>
-        
-    </main>
+    </section>
+</main>
+
+
     <?php include '/xampp/htdocs/miskyyurax/views/barras/footer.php' ?>
 </body>
 

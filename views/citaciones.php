@@ -51,17 +51,17 @@ if ($role == 'admin') {
 
     <main>
         <section>
-            <div class="container ">
+            <div class="container w-75">
                 <?php
                 include('../scripts/mensaje_cambio.php');
                 ?>
-                <div class="container pt-2">
-                    <h1>Gestor de citas</h1>
+                <div class="container py-5">
+                    <h1 class="display-2 fw-bolder mb-5">Registra una cita</h1>
                     <p class="text-center">Aquí puedes solicitar una cita, modificarlas o borrarlas.</p>
                 </div>
 
                 <?php if ($role != 'admin') { ?>
-                    <div class="container  py-5">
+                    <div class="container">
                         <h2>Solicitar cita</h2>
                         <form action="/miskyyurax/views/citas/solicitar_cita.php" method="post">
                             <div class="form-group">
@@ -75,8 +75,13 @@ if ($role == 'admin') {
                             <hr>
                             <label for="privacidad">Acepta nuestra <a href="#">política de privacidad?</a></label>
                             <input type="checkbox" id="privacidad" name="privacidad" required>
-                            <button class="btn btn-secondary" type="submit" id="enviar">Enviar</button>
-                            <button class="btn btn-secondary" type="reset">Borrar</button>
+                            </br></br>
+                            <div>
+                                <div>
+                                    <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                                    <button class="btn btn-primary" type="reset">Borrar</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <hr>
@@ -138,7 +143,7 @@ if ($role == 'admin') {
                                         <button class="btn btn-outline-primary" type='submit' name='action' value='update'>Actualizar</button>
                                     </form>
                                 </div>
-                                <button class="btn btn-secondary" type='button' onclick="toggleForm(<?php echo $idCita ?>)">Modificar</button>
+                                <button class="btn btn-primary" type='button' onclick="toggleForm(<?php echo $idCita ?>)">Modificar</button>
                             </div>
                             <hr>
                     <?php

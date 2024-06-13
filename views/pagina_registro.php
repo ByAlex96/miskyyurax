@@ -17,9 +17,9 @@ include('../config.php');
 
     <main>
         <section>
-            <div class="container  py-5">
+            <div class="container  py-5 w-75">
                 <h1 class="display-2 fw-bolder mb-2">Eres nuevo? regístrate aquí</h1>
-                <p>Ya tiene cuenta? <a href="pagina_login.php">Accede aquí</a></p>
+                <p>Ya tiene cuenta? <a href="pagina_login.php" class="btn btn-primary">Accede aquí</a></p>
                 <!--la funcion se llamara a cualquier cambio del formulario.-->
                 <?php
                 // Comprobamos si se ha enviado el formulario
@@ -132,9 +132,10 @@ include('../config.php');
 
                     <label for="privacidad">Acepta nuestra <a href="#">política de privacidad?</a></label>
                     <input type="checkbox" id="privacidad" name="privacidad" required>
-                    <div class="form_buttons">
-                        <button class="btn btn-dark" type="submit" id="enviar">Enviar</button>
-                        <button class="btn btn-dark" type="reset">Borrar</button>
+                    </br></br>
+                    <div>
+                        <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                        <button class="btn btn-primary" type="reset">Borrar</button>
                     </div>
                 </form>
             </div>

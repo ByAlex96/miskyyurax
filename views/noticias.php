@@ -32,11 +32,11 @@ if (isset($_SESSION['usuario'])) {
 
     <main>
         <section>
-            <div class="container p-2 ">
+            <div class="container p-2 w-75 py-2">
                 <?php include('../scripts/mensaje_cambio.php'); ?>
 
                 <?php if (isset($role) && $role == 'admin') { ?>
-                    <h2>Subir una noticia</h2>
+                    <h2 class="display-2 fw-bolder m-5">Añade noticia nueva</h2>
                     <form action="/miskyyurax/views/noticias/subir_noticia.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
@@ -49,7 +49,7 @@ if (isset($_SESSION['usuario'])) {
                         <div class="form-group">
                             <label for="imagen">Imagen:</label><br>
                             <input type="file" name="imagen" id="imagen"><br>
-                            <input class="btn btn-secondary mt-2" type="submit" value="Subir noticia">
+                            <input class="btn btn-primary mt-2" type="submit" value="Subir noticia">
                         </div>
                     </form>
                 <?php } ?>
@@ -74,7 +74,7 @@ if (isset($_SESSION['usuario'])) {
             ?>
 
             <div class="news-container container d-flex flex-column justify-content-center text-center">
-                <h1 class="display-2 fw-bolder">Noticias</h1>
+                <h1 class="display-2 fw-bolder mb-5">Noticias</h1>
                 <p class="text-center">¡Enterate de nuestras ofertas!</p>
                 <?php
                 if ($result->num_rows > 0) {
@@ -90,7 +90,7 @@ if (isset($_SESSION['usuario'])) {
                                 <span class="news-date">Publicado el: <?php echo htmlspecialchars($row['fecha']); ?></span>
                             </p>
                             <?php if (isset($role) && $role == 'admin') { ?>
-                                <button class="btn btn-secondary" type="button" onclick="toggleForm(<?php echo $idNoticia; ?>)">Modificar</button>
+                                <button class="btn btn-primary" type="button" onclick="toggleForm(<?php echo $idNoticia; ?>)">Modificar</button>
                             <?php } ?>
                         </div>
 
@@ -108,10 +108,10 @@ if (isset($_SESSION['usuario'])) {
                                 <label for="cuerpo">Cuerpo:</label><br>
                                 <textarea name="cuerpo" class="form-control" rows="6" required><?php echo htmlspecialchars($row['cuerpo']); ?></textarea><br>
 
-                                <button class="btn btn-dark" type="submit" name="accion" value="actualizar">Guardar cambios</button>
-                                <button class="btn btn-dark" type="submit" name="accion" value="eliminar">Eliminar noticia</button>
+                                <button class="btn btn-primary" type="submit" name="accion" value="actualizar">Guardar cambios</button>
+                                <button class="btn btn-primary" type="submit" name="accion" value="eliminar">Eliminar noticia</button>
                             </form>
-                            <button class="btn btn-secondary" type="button" onclick="toggleForm(<?php echo $idNoticia; ?>)">Cancelar</button>
+                            <button class="btn btn-primary" type="button" onclick="toggleForm(<?php echo $idNoticia; ?>)">Cancelar</button>
                         </div>
                         <hr>
                 <?php

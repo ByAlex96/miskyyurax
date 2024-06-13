@@ -101,8 +101,11 @@ if ($stmt->num_rows > 0) {
         <div class="p-2">
             <label for="confirmacion">¿Esta seguro?</label>
             <input type="checkbox" id="confirmacion" name="confirmacion" required>
-            <button class="btn btn-dark" type='submit'>Actualizar Datos</button>
-            <button class="btn btn-dark" type='reset'>Reiniciar</button>
+            </br></br>
+            <div>
+                <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                <button class="btn btn-primary" type="reset">Borrar</button>
+            </div>
         </div>
     </form>
 <?php
