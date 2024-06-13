@@ -9,3 +9,16 @@ function toggleForm(idCita) {
         form1.classList.add('hide');
     }
 }
+
+function toggleForm(formId) {
+    var crearForm = document.getElementById('crearForm');
+    var modificarForm = document.getElementById('modificarForm');
+
+    if (formId === 'crear') {
+        window.location.href = '/miskyyurax/views/perfil/registrar.php';
+        // Aquí podrías ocultar otros formularios si es necesario
+    } else if (formId === 'modificar') {
+        modificarForm.style.display = modificarForm.style.display === 'none' ? 'block' : 'none';
+        crearForm.style.display = 'none';
+    }
+}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Author" CONTENT="Alexander Pérez">
     <meta name="description" content="Contacto">
-    <link rel="icon" type="image/jpg" href="../photos/logo.png">
+    <link rel="icon" type="image/jpg" href="../../miskyyurax/photos/logo.png">
     <!-- ESTILO-->
     <link rel="stylesheet" href="/miskyyurax/style/main.css">
     <!--Scripts JS-->

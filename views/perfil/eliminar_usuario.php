@@ -25,32 +25,7 @@ if ($role == 'admin') {
     $userStmt->close();
 }
 
-if (isset($_POST['user_id']) && $_POST['user_id'] !== '') {
-    $idUsuario = $_POST['user_id'];
-
-    // Obtener el usuario seleccionado
-    $stmt = $conn->prepare('
-        SELECT DISTINCT l.usuario, l.role 
-        FROM usuarios u
-        JOIN logins l ON u.IdUsuario = l.idUsuarioFK
-        WHERE u.IdUsuario = ?
-    ');
-    $stmt->bind_param('i', $idUsuario);
-    $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($usuarioSeleccionado, $roleSeleccionado);
-    $stmt->fetch();
-
-    $_SESSION['usuarioseleccionado'] = $idUsuario;
-    $_SESSION['usuarioseleccionado_nombre'] = $usuarioSeleccionado;
-    $_SESSION['usuarioseleccionado_role'] = $roleSeleccionado;
-    $stmt->close();
-} else {
-    $idUsuario = $_SESSION['usuario'];
-    $usuarioSeleccionado = $_SESSION['usuario'];
-    $roleSeleccionado = $_SESSION['role'];
-}
-
+// Procesar la eliminación del usuario seleccionado
 if (isset($_POST['delete_user']) && isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE && isset($_SESSION['usuarioseleccionado'])) {
     $idUsuarioEliminar = $_SESSION['usuarioseleccionado'];
 
@@ -75,59 +50,87 @@ if (isset($_POST['delete_user']) && isset($_SESSION['panel_admin']) && $_SESSION
         exit();
     }
 }
+
+// Si se ha seleccionado un usuario desde el formulario
+if (isset($_POST['user_id']) && $_POST['user_id'] !== '') {
+    $idUsuario = $_POST['user_id'];
+
+    // Obtener el usuario seleccionado
+    $stmt = $conn->prepare('
+        SELECT DISTINCT l.usuario, l.role 
+        FROM usuarios u
+        JOIN logins l ON u.IdUsuario = l.idUsuarioFK
+        WHERE u.IdUsuario = ?
+    ');
+    $stmt->bind_param('i', $idUsuario);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($usuarioSeleccionado, $roleSeleccionado);
+    $stmt->fetch();
+
+    $_SESSION['usuarioseleccionado'] = $idUsuario;
+    $_SESSION['usuarioseleccionado_nombre'] = $usuarioSeleccionado;
+    $_SESSION['usuarioseleccionado_role'] = $roleSeleccionado;
+    $stmt->close();
+} else {
+    // Si no hay usuario seleccionado, mostrar el propio usuario
+    $idUsuario = $_SESSION['usuario'];
+    $usuarioSeleccionado = $_SESSION['usuario'];
+    $roleSeleccionado = $_SESSION['role'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<?php include '/xampp/htdocs/miskyyurax/views/head.php' ?>
-<title>Eliminar usuario</title>
+
+<head>
+    <?php include '/xampp/htdocs/miskyyurax/views/head.php'; ?>
+    <title>Eliminar usuario</title>
 </head>
 
 <body>
     <?php include('../../scripts/selector_de_barras.php'); ?>
     <main>
-    <section class="container-fluid" style="background-color: #f0f0f0;">
-        <div class="container w-75 py-5">
-            <a href="javascript:history.back()" class="btn btn-primary mb-3">Volver</a>
-            <?php include('../../scripts/mensaje_cambio.php'); ?>
-            <h1 class="display-2 fw-bolder p-5">Eliminar Usuario</h1>
-            <form method="post" action="" class="p-3 my-3">
-                <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) { ?>
-                    <label for="user_id">Seleccionar usuario a eliminar:</label>
-                    <select class="form-control" id="user_id" name="user_id" required>
-                        <?php foreach ($users as $user) { ?>
-                            <option value="<?php echo htmlspecialchars($user['id']); ?>" <?php echo ($user['id'] == $idUsuario) ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($user['name']); ?>
-                            </option>
-                        <?php } ?>
-                    </select><br>
-                    <button class="btn btn-primary" type="submit" id="enviar">Seleccionar</button>
-                <?php } ?>
-            </form>
-
-            <form action="" method="post" class="py-2">
-                <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE && isset($usuarioSeleccionado)) { ?>
-                    <p>Ahora tiene seleccionado al <?php echo $roleSeleccionado; ?> <?php echo $usuarioSeleccionado; ?> <br>
-                        La eliminación de usuario es permanente e irreversible. Tenga cuidado.</p>
-                    <?php if (isset($_SESSION['error']) && $_SESSION['error'] !== '') { ?>
-                        <p style="color:red;"><?php echo $_SESSION['error'];
-                                                unset($_SESSION['error']); ?></p>
+        <section class="container-fluid" style="background-color: #f0f0f0;">
+            <div class="container w-75 py-5">
+                <a href="javascript:history.back()" class="btn btn-primary mb-3">Volver</a>
+                <?php include('../../scripts/mensaje_cambio.php'); ?>
+                <h1 class="display-2 fw-bolder p-5">Eliminar Usuario</h1>
+                <form method="post" action="" class="p-3 my-3">
+                    <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) { ?>
+                        <label for="user_id">Seleccionar usuario a eliminar:</label>
+                        <select class="form-control" id="user_id" name="user_id" onchange="this.form.submit()" required>
+                            <?php foreach ($users as $user) { ?>
+                                <option value="<?php echo htmlspecialchars($user['id']); ?>" <?php echo ($user['id'] == $idUsuario) ? 'selected' : ''; ?>>
+                                    <?php echo htmlspecialchars($user['name']); ?>
+                                </option>
+                            <?php } ?>
+                        </select><br>
                     <?php } ?>
-                    <div class="p-3">
-                        <label for="confirmacion_check">¿Está seguro?</label>
-                        <input type="checkbox" id="confirmacion_check" name="confirmacion_check" required>
-                        <br><br>
-                        <div>
-                            <button class="btn btn-primary" type="submit" name="delete_user">Eliminar Usuario</button>
-                            <button class="btn btn-primary" type="reset">Reiniciar</button>
-                        </div>
-                    </div>
-                <?php } ?>
-            </form>
-        </div>
-    </section>
-</main>
+                </form>
 
-    <?php include '/xampp/htdocs/miskyyurax/views/barras/footer.php' ?>
+                <form action="" method="post" class="py-2">
+                    <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE && isset($usuarioSeleccionado)) { ?>
+                        <p>Ahora tiene seleccionado al <?php echo $roleSeleccionado; ?> <?php echo $usuarioSeleccionado; ?> <br>
+                            La eliminación de usuario es permanente e irreversible. Tenga cuidado.</p>
+                        <?php if (isset($_SESSION['error']) && $_SESSION['error'] !== '') { ?>
+                            <p style="color:red;"><?php echo $_SESSION['error'];
+                                                    unset($_SESSION['error']); ?></p>
+                        <?php } ?>
+                        <div class="p-3">
+                            <label for="confirmacion_check">¿Está seguro?</label>
+                            <input type="checkbox" id="confirmacion_check" name="confirmacion_check" required>
+                            <br><br>
+                            <div>
+                                <button class="btn btn-primary" type="submit" name="delete_user">Eliminar Usuario</button>
+                                <button class="btn btn-primary" type="reset">Reiniciar</button>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </form>
+            </div>
+        </section>
+    </main>
+    <?php include '/xampp/htdocs/miskyyurax/views/barras/footer.php'; ?>
 </body>
 
 </html>

@@ -87,7 +87,7 @@ if (!empty($errors)) {
     foreach ($errors as $error) {
         echo "- $error\\n";
     }
-    echo "'); window.location.href = '/miskyyurax/views/pagina_registro.php';</script>";
+    echo "'); window.location.href = '/miskyyurax/views/admin_usuarios.php';</script>";
     exit();
 }
 
@@ -142,4 +142,3 @@ if ($stmt->execute()) {
 // Cerrar la conexión
 $stmt->close();
 $conn->close();
-?>
