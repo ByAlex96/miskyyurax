@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+  background-color: #f0efe6;
+  background-image: url("../photos/backGround.png");
+  background-attachment: fixed;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
 
 html {
   margin: 0;
   padding: 0;
-  background-color: #f0efe6; 
+  background-color: #f0efe6;
 }
 
 body {
@@ -12,7 +22,7 @@ body {
 
 main {
   background-color: #f0efe6;
-  box-shadow:0 5px 5px 10px #f0efe6;
+  box-shadow: 0 5px 5px 10px #f0efe6;
   margin: auto;
   margin-top: 70px;
   padding: 30px;
@@ -24,50 +34,54 @@ a {
   font-weight: bold;
 }
 
-h1, h2{
+h1,
+h2 {
   letter-spacing: 2px;
   word-spacing: 8px;
   text-align: center;
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 /*---------------------Barra de navegación-------------------------
 Aqui establezco que la barra abarque el 100% de la pagina*/
 header {
-  position: fixed; 
+  position: fixed;
   z-index: 1;
-  top: 0; 
+  top: 0;
   width: 100%;
   background-color: #f38b66;
 }
+
 nav {
   position: relative;
   margin: auto;
   width: 1250px;
 }
 
-  /*estilo de la lista de la barra*/
+/*estilo de la lista de la barra*/
 nav ul {
   list-style: none;
-  overflow: auto; 
+  overflow: auto;
   padding: 0;
   margin: 0;
 }
 
 /*permite que los elementos de la lista "floten" de izq a der.*/
 nav ul li {
-float: left;
-display: flex;
+  float: left;
+  display: flex;
 }
 
 /*texto de la barra*/
-nav ul li a{
-  font-weight:bold;
+nav ul li a {
+  font-weight: bold;
   font-size: 2rem;
   display: block;
-  padding: 12px 20px 15px 15px ;
+  padding: 12px 20px 15px 15px;
   color: #000;
   text-decoration: none;
 }
+
 .float-right img {
   float: right;
   padding: 10px 10px 10px 10px;
@@ -83,7 +97,10 @@ nav ul li a img {
 }
 
 /*esto es para identificar en que pagina te encuentras*/
-#selected {color: white;}
+#selected {
+  color: white;
+}
+
 /*----- Carrousel ------*/
 .carousel-indicators {
   position: absolute;
@@ -91,6 +108,7 @@ nav ul li a img {
   right: 20px;
   top: 50px;
 }
+
 #cartas {
   display: flex;
   flex-flow: wrap;
@@ -100,9 +118,11 @@ nav ul li a img {
   justify-items: center;
   gap: 2rem;
 }
+
 .card {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
 /*------------------------------Footer----------------------------*/
 footer {
   padding: 10px 40px 5px 40px;
@@ -113,13 +133,14 @@ footer {
 /*lista que hice para que los logos de redes sociales se vean de izq a derecha*/
 footer ul {
   list-style: none;
-padding-left: 0;
+  padding-left: 0;
 }
 
 footer ul li {
   display: inline;
 }
-footer ul li a img{
+
+footer ul li a img {
   text-decoration: none;
   width: 40px;
   height: auto;
@@ -135,15 +156,18 @@ footer ul li a img{
     max-width: 90%;
     margin-top: 7px;
   }
+
   header {
-    top: 0; 
+    top: 0;
     background-color: #f38b66;
-    position:static;
+    position: static;
   }
+
   nav {
     margin: auto;
     width: auto;
   }
+
   nav ul li a {
     padding-left: 10px;
   }
@@ -153,21 +177,28 @@ footer ul li a img{
   #cartas {
     flex-direction: column;
     width: -moz-fit-content;
-    width:fit-content;
-    }}
+    width: fit-content;
+  }
+}
 
-@media only screen and (max-width: 525px) { 
-  nav ul li img { width: 100px;
-  height: auto;}
-  nav ul li a{
+@media only screen and (max-width: 525px) {
+  nav ul li img {
+    width: 100px;
+    height: auto;
+  }
+
+  nav ul li a {
     position: relative;
     font-size: 20px;
     padding: 0;
     overflow: auto;
   }
-  
-  main { width: 80%;
-  }
-  footer {padding: 10px;}
-}
 
+  main {
+    width: 80%;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}

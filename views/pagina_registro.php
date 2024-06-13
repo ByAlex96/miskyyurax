@@ -19,7 +19,7 @@ include('../config.php');
         <section>
             <div class="container  py-5">
                 <h1 class="display-2 fw-bolder mb-2">Eres nuevo? regístrate aquí</h1>
-                <p>Ya tiene cuenta? <a href="pagina_registro">Accede aquí</a></p>
+                <p>Ya tiene cuenta? <a href="pagina_login.php">Accede aquí</a></p>
                 <!--la funcion se llamara a cualquier cambio del formulario.-->
                 <?php
                 // Comprobamos si se ha enviado el formulario

@@ -26,7 +26,7 @@ session_start();
             <img class="home vh-80 d-flex">
             <div class=" row w-100">
                 <div class="col-md-6 offset-md-3 homeContent">
-                    <h2 class="display-2 fw-bolder mb-5">Deliciosas tartas para todos</h2>
+                    <h2 class="display-2 fw-bolder mb-5">Tenemos deliciosos postres para todos lo gustos!</h2>
                     <p class="mx-2">En Misky Yurax te invitamos a descubrir un mundo de sabores irresistibles,
                         donde la tradición peruana se fusiona con la innovación para crear postres que te cautivarán.
                         Nuestra carta
@@ -44,19 +44,6 @@ session_start();
                         peruana!</p>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-6 offset-md-3 homeContent">
-                    <?php if (!isset($_SESSION["valido"]) || $_SESSION["valido"] !== TRUE) {
-                        echo "<h2>Hazte Cliente!</h2>
-                            <p>¿Quieres reservar o acceder a promociones especiales? Hazte cliente gratis y disfruta los dulces peruanos!</p>
-                            <p>No tiene cuenta? <a href='pagina_registro'>Registrate</a></p>
-                            <p>Ya tiene cuenta? <a href='pagina_registro'>Accede</a></p>";
-                    }
-                    ?>
-                </div>
-            </div>
-
         </section>
 
         <?php include 'views/home/slider.php' ?>

@@ -2,6 +2,6 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "ohnigiri";
+$dbname = "miskyyurax";
 $conn = new mysqli($hostname, $username, $password, $dbname);
-?>
+?> 

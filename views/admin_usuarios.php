@@ -83,7 +83,7 @@ if ($role == 'admin') {
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Correo electrónico</label>
-                                    <input class="form-control" type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" placeholder="Ej: Ohnigiri.rest@email.com" required>
+                                    <input class="form-control" type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" placeholder="Ej: misky.yurax@email.com" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="telefono">Numero de teléfono</label>

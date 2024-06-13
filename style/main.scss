@@ -1,35 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Quicksand:wght@300;400;500;600;700&display=swap');
+// Variable overrides first
+$primary: #f38b66;
+$secondary: #e09174;
+$light: #f0efe6;
+$enable-shadows: true;
+$prefix: "mo-";
+$font-size-root: 20px;
+// Then import Bootstrap
+//@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+// custom code
 
 :root {
   background-color: #f0efe6;
   background-image: url("../photos/backGround.png");
   background-attachment: fixed;
-  font-family: 'Quicksand', sans-serif !important;
 }
 
 main {
   background-color: #f0efe6;
-  font-family: 'Quicksand', sans-serif !important;
-}
+  font-family: "Quicksand", sans-serif !important;
 
-main h1,
-main h3 {
-  text-align: center;
-  font-family: 'Quicksand', sans-serif !important;
-}
-
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  font-size: calc(1.325rem + 0.9vw);
-  text-align: center;
-  font-weight: 300;
-  line-height: 1.2;
-  font-weight: bolder;
-  font-family: 'Quicksand', sans-serif !important;
+  h1,
+  h3 {
+    text-align: center;
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: calc(1.325rem + 0.9vw);
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.2;
+    font-weight: bolder;
+  }
 }
 
 section {
@@ -62,7 +67,7 @@ section {
   /* Ajusta este valor según sea necesario */
   max-height: 500px;
   border-style: solid;
-  border-color: #e09174;
+  border-color: $secondary;
   border-radius: 8px;
 }
 
@@ -89,5 +94,3 @@ section {
   /* Color del texto para el elemento activo */
   font-weight: bold;
 }
-
-/*# sourceMappingURL=main.css.map */

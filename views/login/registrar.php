@@ -33,8 +33,6 @@ if (!isset($_SESSION['role']) || (isset($_SESSION['role']) && $_SESSION['role'] 
 
 $fecha_alta = date('Y-m-d');
 
-$fecha_login = ('Y-m-d H:i:s'); //devolvera algo como 2024-05-30 17:12:34
-
 // Protección contra XSS
 $user = strip_tags(htmlentities($user));
 $nombre = strip_tags(htmlentities($nombre));
@@ -103,29 +101,33 @@ $stmt->bind_param("ssssssss", $nombre, $apellidos, $email, $telefono, $fecha_nac
 // Ejecutar la declaración
 if ($stmt->execute()) {
 
-    if (!isset($_SESSION['valido'])){
-    session_regenerate_id();
-    $_SESSION['valido'] = TRUE;
-    $_SESSION['nombre'] = $nombre;
-    $_SESSION['role'] = $role;
+    if (!isset($_SESSION['valido'])) {
+        session_regenerate_id();
+        $_SESSION['valido'] = TRUE;
+        $_SESSION['nombre'] = $nombre;
+        $_SESSION['role'] = $role;
     }
-    
-        // Obtener el ID del usuario insertado
-        $idUsuario = $stmt->insert_id;
 
-       // Insertar en la tabla logins
+    // Obtener el ID del usuario insertado
+    $idUsuario = $stmt->insert_id;
+
+    // Insertar en la tabla logins
     $stmt = $conn->prepare("INSERT INTO logins (idUsuarioFK, fecha_login, usuario, password, role) VALUES (?, ?, ?, ?, ?)");
+
+    // ¡Aquí está la clave!  Asigna la fecha de login correctamente
+    $fecha_login = date('Y-m-d H:i:s');
+
     $stmt->bind_param("issss", $idUsuario, $fecha_login, $user, $hashed_pass, $role);
     // Ejecutar la declaración
     if ($stmt->execute()) {
-        if (!isset($_SESSION['usuario'])){
-        $_SESSION['usuario'] = $idUsuario;
+        if (!isset($_SESSION['usuario'])) {
+            $_SESSION['usuario'] = $idUsuario;
         }
         // La inserción fue exitosa
     } else {
         echo "Ha habido un error, escribir a soporte"; //. $stmt->error;
     }
-    if ($_SESSION['panel_admin'] == TRUE){
+    if ($_SESSION['panel_admin'] == TRUE) {
         header('Location: /miskyyurax/views/admin_usuarios.php');
         $_SESSION['cambio'] = TRUE;
         exit();
@@ -133,7 +135,6 @@ if ($stmt->execute()) {
         header('Location: /miskyyurax/index.php');
         exit();
     }
-    
 } else {
     echo "Ha habido un error, escribir a soporte"; //. $stmt->error;
 }

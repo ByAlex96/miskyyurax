@@ -4,7 +4,7 @@
 // bd.php tambien
 
 
-if (isset($_POST['user_id']) && $_POST['user_id'] !== ''){
+if (isset($_POST['user_id']) && $_POST['user_id'] !== '') {
     $idUsuario = $_POST['user_id'];
 } else {
     $idUsuario = $_SESSION['usuario'];
@@ -33,18 +33,18 @@ if ($stmt->num_rows > 0) {
     $stmt->fetch();
 ?>
 
-<form id="userForm" method="post" action="perfil/actualizar_info.php" class="p-3 my-3">
-    <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
-        echo "Ahora tiene seleccionado al $role $usuario <br>";
-    } ?>
+    <form id="userForm" method="post" action="perfil/actualizar_info.php" class="p-3 my-3">
+        <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) {
+            echo "Ahora tiene seleccionado al $role $usuario <br>";
+        } ?>
 
-    <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) { ?>
-        <label for="role">Rol</label>
-        <select class="form-control" name="role" id="role">
-            <option value="usuario" <?php if ($role == 'usuario') echo 'selected'; ?>>usuario</option>
-            <option value="admin" <?php if ($role == 'admin') echo 'selected'; ?>>admin</option>
-        </select><br>
-    <?php } ?>
+        <?php if (isset($_SESSION['panel_admin']) && $_SESSION['panel_admin'] == TRUE) { ?>
+            <label for="role">Rol</label>
+            <select class="form-control" name="role" id="role">
+                <option value="usuario" <?php if ($role == 'usuario') echo 'selected'; ?>>usuario</option>
+                <option value="admin" <?php if ($role == 'admin') echo 'selected'; ?>>admin</option>
+            </select><br>
+        <?php } ?>
 
 
         <label for='nombre'>Nombre</label>
@@ -70,13 +70,34 @@ if ($stmt->num_rows > 0) {
         </select><br>
 
         <?php if (!isset($_SESSION['panel_admin']) || $_SESSION['panel_admin'] == FALSE) {
-      echo '
+            echo '
         <div class="form-group">
             <label for="password">Para realizar los cambios, introduzca contraseña</label>
             <input class="form-control" type="password" id="password" name="password" placeholder="Contraseña" pattern=".{8,60}" required>
         </div>
-        '; }   ?>
-<a href="perfil/cambio_contraseña.php">Cambiar contraseña?</a>
+        ';
+        }   ?>
+        <div class="password_show">
+            <label for="check_password">Mostrar contraseña</label>
+            <input type="checkbox" id="check_password">
+        </div>
+        <script>
+            const check_password = document.getElementById("check_password")
+            const password_input = document.getElementById("password")
+
+            check_password.addEventListener("click", function() {
+                showHide_password(password_input)
+            });
+
+            function showHide_password(p_iput) {
+                if (p_iput.type === "password") {
+                    p_iput.type = "text";
+                } else {
+                    p_iput.type = "password";
+                }
+            }
+        </script>
+        <a href="perfil/cambio_contraseña.php">Cambiar contraseña?</a>
         <div class="p-2">
             <label for="confirmacion">¿Esta seguro?</label>
             <input type="checkbox" id="confirmacion" name="confirmacion" required>

@@ -59,7 +59,8 @@ if ($stmt->num_rows > 0) {
             </script>";
             exit();
         } else {
-            echo "Ha habido un error, escribir a soporte";
+            // Imprime el error generado por MySQL
+            echo "Error al insertar en la base de datos: " . $conn->error;
         }
     } else {
         echo "<script>
