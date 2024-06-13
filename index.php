@@ -45,11 +45,12 @@ session_start();
                 </div>
             </div>
         </section>
-
+            
+        <section>
         <?php include 'views/home/slider.php' ?>
         <?php include 'views/home/cards.php' ?>
         <?php include 'views/home/testimonio.php' ?>
-
+        </section>
     </main>
 
     <?php include 'views/barras/footer.php' ?>

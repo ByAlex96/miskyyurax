@@ -14,8 +14,8 @@ include('../scripts/selector_de_barras.php');
 ?>
 <main>
     <section>
-        <div class="container py-5 text w-75">
-            <h1 class="display-2 fw-bolder mb-5">Iniciar sección</h1>
+        <div class="container py-5 text w-75 ">
+            <h1 class=" display-2 fw-bolder mb-5">Iniciar sección</h1>
             <p>No tiene cuenta? <a href="pagina_registro.php" class="btn btn-primary">REGISTRATE AQUÍ</a></p>
 
             <!--la funcion se llamara a cualquier cambio del formulario.-->
